@@ -1,16 +1,18 @@
-# React + Vite
+# Watch Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React 19, Vite, GSAP, and plain CSS recreation of the daylight-to-midnight preview.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use Node 20.19+ on the 20 line or Node 22.12+ on a newer line.
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open the local URL from Vite. Activate the watch by clicking, tapping, or pressing Enter or Space while it has focus. The face uses your device's local 24-hour time. Replay intro returns the studio to Awake.
 
-## Expanding the Oxlint configuration
+For an existing Vite project, the files to type or replace are `src/App.jsx`, `src/WatchFace.jsx`, and `src/index.css`. Keep the import of `index.css` in `src/main.jsx` and install the animation packages with `npm install gsap @gsap/react`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Run `npm run build` for a production build and `npm run preview` to serve it locally.
