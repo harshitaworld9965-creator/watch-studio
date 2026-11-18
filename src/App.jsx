@@ -2,11 +2,13 @@ import { useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import WatchFace from './WatchFace.jsx'
+import StrapPicker from './StrapPicker.jsx'
 
 gsap.registerPlugin(useGSAP)
 
 export default function App() {
   const [isAlwaysOn, setIsAlwaysOn] = useState(false)
+  const [selectedStrap, setSelectedStrap] = useState('orange')
   const studio = useRef(null)
   const intro = useRef(null)
   const ripple = useRef(null)
@@ -52,7 +54,7 @@ export default function App() {
   }
 
   return (
-    <main ref={studio} className="studio" data-mode={isAlwaysOn ? 'always-on' : 'awake'}>
+    <main ref={studio} className="studio" data-mode={isAlwaysOn ? 'always-on' : 'awake'} data-strap = {selectedStrap}>
       <div className="studio__frame">
         <header className="studio__header">
           <h1>Watch Studio</h1>
@@ -78,6 +80,11 @@ export default function App() {
           <div className="studio__pulse" aria-hidden="true" />
           <WatchFace isAlwaysOn={isAlwaysOn} onToggle={toggleDisplay} />
         </div>
+
+          <StrapPicker
+          selectedStrap={selectedStrap}
+          onSelect={setSelectedStrap}
+          />
 
         <footer className="studio__footer">
           <output>{isAlwaysOn ? 'Always-on' : 'Awake'}</output>
