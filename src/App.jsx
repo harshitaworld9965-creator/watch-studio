@@ -54,7 +54,7 @@ export default function App() {
   }
 
   return (
-    <main ref={studio} className="studio" data-mode={isAlwaysOn ? 'always-on' : 'awake'} data-strap = {selectedStrap}>
+    <main ref={studio} className="studio" data-mode={isAlwaysOn ? 'always-on' : 'awake'} data-strap={selectedStrap}>
       <div className="studio__frame">
         <header className="studio__header">
           <h1>Watch Studio</h1>
@@ -78,13 +78,29 @@ export default function App() {
             <span className="studio__cross studio__cross--right">+</span>
           </div>
           <div className="studio__pulse" aria-hidden="true" />
-          <WatchFace isAlwaysOn={isAlwaysOn} onToggle={toggleDisplay} />
+          <div className="watch-body">
+            <span
+              className="watch-body__strap watch-body__strap--top"
+              aria-hidden="true"
+            />
+            <span
+              className="watch-body__strap watch-body__strap--bottom"
+              aria-hidden="true"
+            />
+            <span className="watch-body__case" aria-hidden="true" />
+            <span className="watch-body__crown" aria-hidden="true" />
+
+            <WatchFace
+              isAlwaysOn={isAlwaysOn}
+              onToggle={toggleDisplay}
+            />
+          </div>
         </div>
 
-          <StrapPicker
+        <StrapPicker
           selectedStrap={selectedStrap}
           onSelect={setSelectedStrap}
-          />
+        />
 
         <footer className="studio__footer">
           <output>{isAlwaysOn ? 'Always-on' : 'Awake'}</output>
